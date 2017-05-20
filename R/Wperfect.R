@@ -18,7 +18,7 @@
 #'\item{sumcorlr}{short summary descriptive statistics of the correlations}
 #'\item{randommat}{array containing the generated data matrices (if argument keepmat is set TRUE)}
 #'
-#' @importFrom pcIRT simDRM
+#' @import pcIRT
 #'
 #' @author Christine Hohensinn
 #' 
@@ -63,7 +63,7 @@ Wperfect <- function(datmat, weightmat, repl=50, keepmat=FALSE){
   }
 
 for (m in 1:repl){
-    dat <- simDRM(lltmo$itempar, persons=nrow(datmat))
+    dat <- pcIRT:::simDRM(lltmo$itempar, persons=nrow(datmat))
     rm.data <- DRM(dat$datmat)
     lltz <- DRM(dat$datmat, desmat=weightmat)
     lltzbeta.norm <- lltz$itempar-mean(lltz$itempar)

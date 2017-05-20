@@ -17,3 +17,4 @@ Imports: pcIRT,
 Description: For the linear logistic test model (LLTM), the weight matrix has to be defined by the user. The package provides a method to assess the goodness-of-fit of this weight matrix proposed in Baghaei and Hohensinn, submitted).
 License: GPL-3
 URL: https://github.com/christinehohensinn/parAL
+RoxygenNote: 6.0.1
