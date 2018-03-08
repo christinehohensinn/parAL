@@ -44,8 +44,10 @@
 
 
 Wpermut <- function(datmat, weightmat, repl=100, keepmat=FALSE){
-  if(!any(datmat %in% c(0,1))){stop("data matrix has to contain only 0 and 1s")}
-  if(!any(weightmat %in% c(0,1))){stop("weight matrix has to contain only 0 and 1s")}
+  datmat <- as.matrix(datmat)
+  weightmat <- as.matrix(weightmat)
+  if(!all(datmat %in% c(0,1))){stop("data matrix has to contain only 0 and 1s")}
+  if(!all(weightmat %in% c(0,1))){stop("weight matrix has to contain only 0 and 1s")}
   if(repl > 1000){warning("The defined number of replications is high. The process may take some time!")}
   
 permuts <- t(sapply(1:repl,numperm,olength=ncol(datmat)))

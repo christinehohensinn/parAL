@@ -42,8 +42,10 @@
 
 
 Wperfect <- function(datmat, weightmat, repl=50, keepmat=FALSE){
-  if(!any(datmat %in% c(0,1))){stop("data matrix has to contain only 0 and 1s")}
-  if(!any(weightmat %in% c(0,1))){stop("weight matrix has to contain only 0 and 1s")}
+  datmat <- as.matrix(datmat)
+  weightmat <- as.matrix(weightmat)
+  if(!all(datmat %in% c(0,1))){stop("data matrix has to contain only 0 and 1s")}
+  if(!all(weightmat %in% c(0,1))){stop("weight matrix has to contain only 0 and 1s")}
   if(repl > 500){warning("The defined number of replications is high. The process may take some time!")}
 
 #LLTM with original data
